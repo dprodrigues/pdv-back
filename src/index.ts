@@ -1,7 +1,8 @@
-const express = require("express");
-const router = require("./router");
+import express = require("express");
+import dotenv = require("dotenv");
+import router from "./router";
 
-require("dotenv").config();
+dotenv.config();
 
 const PORT = process.env.PORT;
 
