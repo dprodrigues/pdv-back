@@ -1,32 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ES2022",
-    "module": "CommonJS",
-    "rootDir": "./src",
-    "outDir": "dist",
-    "allowSyntheticDefaultImports": true,
-    "importHelpers": true,
-    "alwaysStrict": true,
-    "sourceMap": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "importsNotUsedAsValues": "remove",
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "outDir": "./dist",
+    "skipLibCheck": true,
     "strict": true,
-    "removeComments": true,
-    "esModuleInterop": true,
-    "typeRoots": [
-      "./src/@types",
-    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
-    "src/**/*",
-    "__tests__/**/*"
+    "src/**/*.ts",
   ],
   "exclude": [
     "node_modules"
