@@ -1,0 +1,31 @@
+version: '3.0'
+
+services:
+  api:
+    env_file:
+      - .env
+    build: 
+      context: .
+    networks:
+      - services
+    volumes:
+      - ./:/home/node/app
+      - $HOME/.npmrc:/home/node/.npmrc
+      - $HOME/ssh:/home/node/.ssh
+    links:
+      - db
+    ports:
+      - 8081:8081
+
+  db:
+    image: postgres:16.2
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=dbpwd3301
+      - POSTGRES_DB=db
+    ports:
+      - "5432:5432"
+
+networks:
+  services:
+    driver: bridge
