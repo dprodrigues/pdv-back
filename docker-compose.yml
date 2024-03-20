@@ -6,8 +6,6 @@ services:
       - .env
     build: 
       context: .
-    networks:
-      - services
     volumes:
       - ./:/home/node/app
       - $HOME/.npmrc:/home/node/.npmrc
@@ -19,11 +17,10 @@ services:
 
   db:
     image: postgres:16.2
+    hostname: db
+    volumes:
+      - ./devops/sql/ddl.sql:/docker-entrypoint-initdb.d/script.sql
     env_file:
       - .env
     ports:
       - "5432:5432"
-
-networks:
-  services:
-    driver: bridge
